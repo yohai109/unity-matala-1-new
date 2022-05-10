@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 using UnityStandardAssets.Utility;
+using UnityStandardAssets.Characters.FirstPerson;
 public class MainMenuScript : MonoBehaviour
 {
     //public Canvas quitMenu;
     public Button starText;
     public Button exitText;
-    
+    MouseLook mouseLook;
     
     // Start is called before the first frame update
     void Start()
     {
+        mouseLook = new MouseLook();
+        mouseLook.lockCursor = false;
         Cursor.visible = true;
     }
 
