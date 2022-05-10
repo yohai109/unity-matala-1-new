@@ -23421,6 +23421,10 @@ PrefabInstance:
       value: Patrol
       objectReference: {fileID: 0}
     - target: {fileID: 1270629438674438770, guid: bb2eaead4210765408b7b5434d3bd1a2, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270629438674438770, guid: bb2eaead4210765408b7b5434d3bd1a2, type: 3}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}

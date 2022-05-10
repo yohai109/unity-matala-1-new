@@ -36,6 +36,7 @@ public class PatrolScript : MonoBehaviour
             StartCoroutine(Stay());
             if (isFinishedFlag)
             {
+                speed = 0;
                 GameObject
                     .FindWithTag("Manager")
                     .GetComponent<newManager>()
@@ -49,8 +50,11 @@ public class PatrolScript : MonoBehaviour
     IEnumerator Stay()
     {
         flag = false;
+        float oldSpeed = speed;
+        speed = 0;
         yield return new WaitForSeconds(5);
         flag = true;
+        speed = oldSpeed;
     }
 
     public void setSpeed(float newSpeed)
