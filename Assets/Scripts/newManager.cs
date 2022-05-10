@@ -87,6 +87,8 @@ public class newManager : MonoBehaviour
         GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = false;
         GameObject.FindWithTag("Player").GetComponent<RigidbodyFirstPersonController>().mouseLook.lockCursor = false;
         GameObject.FindWithTag("finishCamera").GetComponent<Camera>().enabled = false;
+        Destroy(GameObject.FindWithTag("Player"));
+        Cursor.lockState = CursorLockMode.None;
         // GameObject.FindGameObjectWithTag("Player").GetComponent("MouseLook").enable = false;
         print("player touched");
         SceneManager.LoadScene("LosingMenu");
