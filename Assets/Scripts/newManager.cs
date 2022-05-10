@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class newManager : MonoBehaviour
 {
@@ -83,7 +84,11 @@ public class newManager : MonoBehaviour
 
     public void PatrolTouchedPlayer()
     {
+        GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = false;
+        GameObject.FindWithTag("Player").GetComponent<RigidbodyFirstPersonController>().mouseLook.lockCursor = false;
+        GameObject.FindWithTag("finishCamera").GetComponent<Camera>().enabled = false;
+        // GameObject.FindGameObjectWithTag("Player").GetComponent("MouseLook").enable = false;
         print("player touched");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LosingMenu");
     }
 }

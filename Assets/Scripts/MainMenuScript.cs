@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
+using UnityStandardAssets.Utility;
 public class MainMenuScript : MonoBehaviour
 {
     //public Canvas quitMenu;
     public Button starText;
     public Button exitText;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = true;
+    }
+
+    void Update() {
+        Cursor.visible = true;
     }
 
     public void ExitPress() {
