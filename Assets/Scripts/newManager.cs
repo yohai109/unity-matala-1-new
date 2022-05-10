@@ -23,8 +23,8 @@ public class newManager : MonoBehaviour
             anchor.GetComponent<Renderer>().enabled = false;
             anchor.GetComponent<Rigidbody>().mass = 0;
         }
-        GameObject.FindWithTag("ST_Axe").GetComponent<Renderer>().enabled = false;
-        GameObject.FindWithTag("Axe").GetComponent<Rigidbody>().mass = 0;
+        GameObject.FindWithTag("Ball").GetComponent<Renderer>().enabled = false;
+        GameObject.FindWithTag("Ball").GetComponent<Rigidbody>().mass = 0;
     }
 
     // Update is called once per frame
@@ -69,6 +69,9 @@ public class newManager : MonoBehaviour
 
     public void PatrolAtFinishPoint()
     {
+        GameObject.FindWithTag("finishCamera").GetComponent<Camera>().enabled = true;
+        GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = false;
+        new WaitForSeconds(10);
         anchors = GameObject.FindGameObjectsWithTag("Anchor");
         foreach (GameObject anchor in anchors)
         {
@@ -76,11 +79,17 @@ public class newManager : MonoBehaviour
             anchor.GetComponent<Renderer>().enabled = true;
             anchor.GetComponent<Rigidbody>().mass = 1;
         }
-        GameObject.FindWithTag("finishCamera").GetComponent<Camera>().enabled = true;
-        GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = false;
-        GameObject.FindWithTag("ST_Axe").GetComponent<Renderer>().enabled = true;
-        GameObject.FindWithTag("Axe").GetComponent<Rigidbody>().mass = 12;
+        
+        GameObject.FindWithTag("Ball").GetComponent<Renderer>().enabled = true;
+        GameObject.FindWithTag("Ball").GetComponent<Rigidbody>().mass = 1;
+        
     }
+
+     IEnumerator Stay()
+    {
+        yield return new WaitForSeconds(3);
+    }
+ 
 
     public void PatrolTouchedPlayer()
     {
@@ -92,5 +101,14 @@ public class newManager : MonoBehaviour
         // GameObject.FindGameObjectWithTag("Player").GetComponent("MouseLook").enable = false;
         print("player touched");
         SceneManager.LoadScene("LosingMenu");
+    }
+
+    public void Win() {
+        GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = false;
+        GameObject.FindWithTag("Player").GetComponent<RigidbodyFirstPersonController>().mouseLook.lockCursor = false;
+        GameObject.FindWithTag("finishCamera").GetComponent<Camera>().enabled = false;
+        Destroy(GameObject.FindWithTag("Player"));
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("WIningMenu");
     }
 }

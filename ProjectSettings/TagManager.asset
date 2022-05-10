@@ -9,6 +9,7 @@ TagManager:
   - Manager
   - finishCamera
   - Anchor
+  - Ball
   layers:
   - Default
   - TransparentFX

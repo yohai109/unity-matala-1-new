@@ -74,5 +74,11 @@ public class PatrolScript : MonoBehaviour
             print("in patrol");
             GameObject.FindWithTag("Manager").GetComponent<newManager>().PatrolTouchedPlayer();
         }
+
+        if (other.tag == "Ball")
+        {
+            //print("Touched Wrecking Ball");
+            GameObject.FindWithTag("Manager").GetComponent<newManager>().Win();
+        }
     }
 }
