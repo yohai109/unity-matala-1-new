@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gate
+  - Patrol
+  - Manager
+  - finishCamera
+  - Anchor
   layers:
   - Default
   - TransparentFX
